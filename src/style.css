@@ -18,3 +18,57 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--white);
 }
+/* universal styling */
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  height: inherit;
+  padding-inline:10px ;
+}
+
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
+
+img{
+  width: 100%;
+}
+header{
+  background-color: var(--dark-blue);
+  height: 80px;
+}
+
+.main-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+}
+.nav-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav-item{
+  padding-inline: 10px;
+  color: var(--white);
+}
+
+.logo{
+  color: var(--gray);
+}
+main{
+  margin-block: 20px;
+}
+
+.movies-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
