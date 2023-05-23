@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Poppins:wght@100;200;300;400;700&display=swap');
+
+:root {
+  --white: #F1F6F9;
+  --light-blue: #394867;
+  --dark-blue: #212A3E;
+  --gray: #9BA4B5;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +14,7 @@
 }
 
 body {
-  font-family: sans-serif;
   font-size: 24px;
-  background-color: rgb(251, 141, 6);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
 }
