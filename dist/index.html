@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanbanboard</title>
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+
 <body>
     <header>
-        <nav class="main-nav">
-            <a href="./index.html" class="logo"
-              ><img src="./assets/images/icpc-logo.png" alt="ICPC-Logo"
-            /></a>
-            <ul class="nav-list">
-              <li><a href="#" class="nav-item">Spaceship<span>(6)</span></a></li>
-              <li><a href="#" class="nav-item">Planets</a></li>
-              <li><a href="#" class="nav-item">Races</a></li>
-            </ul>
-          </nav>
+        <div class="container">
+            <nav class="main-nav">
+                <a href="./index.html" class="logo">Movies</a>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-item">Spaceship<span>(6)</span></a></li>
+                    <li><a href="#" class="nav-item">Planets</a></li>
+                    <li><a href="#" class="nav-item">Races</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <ul class="movies-list">
-            <li class="movie">
-                <img src="" alt="">
-                <div class="detail">
-                    <label>Space 1</label>
-                    <div>
-                        <i class='far fa-heart'></i>
-                        <span class="likes">5 likes</span>
-                    </div>
-                </div>
-                <button class="btn cmnt-btn">Comments</button>
-                <button class="btn res-btn">Reservations</button>
-            </li>
-        </ul>
+        <div class="container">
+            <section class="movies">
+                <ul class="movies-list">
+                    <li class="movie">
+                        <img src="https://images.unsplash.com/photo-1661956602153-23384936a1d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="">
+                        <div class="detail">
+                            <h3>Space 1</h3>
+                            <div class="likes">
+                                <i class='far fa-heart'></i>
+                                <span class="likes">5 likes</span>
+                            </div>
+                        </div>
+                        <div class="reserve-comment">
+                            <button class="btn cmnt-btn">Comments</button>
+                            <button class="btn res-btn">Reservations</button>
+                        </div>
+                    </li>
+                 
+                </ul>
+            </section>
+        </div>
     </main>
-    
-    <footer class="homepage-footer">
+
+    <footer>
+      <div class="container">
         <p>Created by Microverse under CC license</p>
+      </div>
     </footer>
 
     <script src="https://kit.fontawesome.com/e88675a3bd.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -69,19 +69,25 @@ header {
 
 main {
   margin-block: 20px;
-  min-height: 78vh;
+  padding-bottom: 60px;
 }
 
 .movies-list {
   display: grid;
-  grid-template-columns: minmax(200px, 1fr);
   gap: 40px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
 }
 
 .likes {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 2px;
 }
 
 .btn {
@@ -109,7 +115,11 @@ i {
 footer {
   background-color: var(--dark-blue);
   padding: 10px 15px;
-  color: var(--light-blue);
+  color: var(--gray);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .nav-list li:nth-child(2) {
@@ -120,9 +130,9 @@ footer {
   display: none;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 710px) {
   .movies-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .nav-list li:nth-child(2) {
@@ -135,5 +145,11 @@ footer {
 
   .btn {
     padding: 10px 20px;
+  }
+}
+
+@media (min-width: 1064px) {
+  .movies-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
