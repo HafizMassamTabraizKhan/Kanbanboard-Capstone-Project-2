@@ -72,3 +72,34 @@ main{
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
+
+.likes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn{
+  background-color: var(--light-blue);
+  padding: 10px 20px;
+  color: var(--white);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+.reserve-comment{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+footer{
+  background-color: var(--dark-blue);
+  padding: 10px 15px;
+  color: var(--light-blue);
+
+}
