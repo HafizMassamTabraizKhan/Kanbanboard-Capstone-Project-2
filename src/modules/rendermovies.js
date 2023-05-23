@@ -1,3 +1,5 @@
+import renderHeader from './header.js';
+
 export const movies = 'https://api.tvmaze.com/shows';
 const getAllmovies = async () => {
   const result = await fetch(movies);
@@ -23,6 +25,7 @@ const getAllmovies = async () => {
   });
   const movieSection = document.getElementById('movies-list');
   movieSection.innerHTML = showoutput;
+  renderHeader();
 };
 
 export default getAllmovies;
