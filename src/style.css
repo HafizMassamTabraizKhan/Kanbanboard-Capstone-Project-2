@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Poppins:wght@100;200;300;400;700&display=swap');
 
 :root {
-  --white: #F1F6F9;
+  --white: #f1f6f9;
   --light-blue: #394867;
-  --dark-blue: #212A3E;
-  --gray: #9BA4B5;
+  --dark-blue: #212a3e;
+  --gray: #9ba4b5;
 }
 
 * {
@@ -18,69 +18,73 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--white);
 }
+
 /* universal styling */
-.container{
+.container {
   max-width: 1200px;
   margin: 0 auto;
   height: inherit;
-  padding-inline:10px ;
+  padding-inline: 10px;
 }
 
-a{
+a {
   text-decoration: none;
 }
-li{
+
+li {
   list-style-type: none;
 }
 
-img{
+img {
   width: 100%;
 }
-header{
+
+header {
   background-color: var(--dark-blue);
   height: 80px;
 }
 
-.main-nav{
+.main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
-
 }
-.nav-list{
+
+.nav-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
 }
 
-.nav-item{
+.nav-item {
   padding-inline: 10px;
   color: var(--white);
 }
 
-.logo{
+.logo {
   color: var(--gray);
 }
-main{
+
+main {
   margin-block: 20px;
   min-height: 78vh;
 }
 
-.movies-list{
+.movies-list {
   display: grid;
   grid-template-columns: minmax(200px, 1fr);
   gap: 40px;
 }
 
-.likes{
+.likes {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.btn{
+.btn {
   background-color: var(--light-blue);
   padding: 5px;
   color: var(--white);
@@ -91,46 +95,45 @@ main{
   font-size: 1.2rem;
 }
 
-.reserve-comment{
+.reserve-comment {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
 
-i{
+i {
   cursor: pointer;
 }
 
-footer{
+footer {
   background-color: var(--dark-blue);
   padding: 10px 15px;
   color: var(--light-blue);
-
 }
 
-.nav-list li:nth-child(2){
-  display: none;
-}
-.nav-list li:nth-child(3){
+.nav-list li:nth-child(2) {
   display: none;
 }
 
+.nav-list li:nth-child(3) {
+  display: none;
+}
 
-
-@media (min-width:500px) {
-  .movies-list{
+@media (min-width: 500px) {
+  .movies-list {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .nav-list li:nth-child(2){
+  .nav-list li:nth-child(2) {
     display: block;
   }
-  .nav-list li:nth-child(3){
+
+  .nav-list li:nth-child(3) {
     display: block;
   }
-  
-  .btn{
+
+  .btn {
     padding: 10px 20px;
   }
 }
