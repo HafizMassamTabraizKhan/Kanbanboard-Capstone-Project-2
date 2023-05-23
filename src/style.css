@@ -65,11 +65,12 @@ header{
 }
 main{
   margin-block: 20px;
+  min-height: 78vh;
 }
 
 .movies-list{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(200px, 1fr);
   gap: 40px;
 }
 
@@ -81,7 +82,7 @@ main{
 
 .btn{
   background-color: var(--light-blue);
-  padding: 10px 20px;
+  padding: 5px;
   color: var(--white);
   border-radius: 5px;
   border: none;
@@ -97,9 +98,39 @@ main{
   margin-top: 10px;
 }
 
+i{
+  cursor: pointer;
+}
+
 footer{
   background-color: var(--dark-blue);
   padding: 10px 15px;
   color: var(--light-blue);
 
+}
+
+.nav-list li:nth-child(2){
+  display: none;
+}
+.nav-list li:nth-child(3){
+  display: none;
+}
+
+
+
+@media (min-width:500px) {
+  .movies-list{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-list li:nth-child(2){
+    display: block;
+  }
+  .nav-list li:nth-child(3){
+    display: block;
+  }
+  
+  .btn{
+    padding: 10px 20px;
+  }
 }
