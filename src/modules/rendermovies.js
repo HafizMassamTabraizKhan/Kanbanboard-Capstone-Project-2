@@ -1,4 +1,5 @@
 import renderHeader from './header.js';
+import showModal from './commentWindow.js';
 
 export const movies = 'https://api.tvmaze.com/shows';
 const getAllmovies = async () => {
@@ -7,7 +8,7 @@ const getAllmovies = async () => {
   const data = await result.json();
   data.forEach((movie) => {
     const displaymovie = `<li class="movie" id=${movie.id}>
-    <img src=${movie.image.medium}
+    <img src=${movie.image.original}
         alt="">
     <div class="detail">
         <h3>${movie.name}</h3>
@@ -26,6 +27,9 @@ const getAllmovies = async () => {
   const movieSection = document.getElementById('movies-list');
   movieSection.innerHTML = showoutput;
   renderHeader();
+
+  const showBtns = document.querySelectorAll('.btn');
+  showBtns.forEach((btn) => btn.addEventListener('click', showModal));
 };
 
 export default getAllmovies;
