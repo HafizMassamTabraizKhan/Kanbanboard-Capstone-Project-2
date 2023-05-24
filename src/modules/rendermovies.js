@@ -12,7 +12,7 @@ const getAllmovies = async () => {
     <div class="detail">
         <h3>${movie.name}</h3>
         <div class="likes">
-            <i class='far fa-heart'></i>
+            <i class='far fa-heart' id=${movie.id}></i>
             <span class="likes">5 likes</span>
         </div>
     </div>
