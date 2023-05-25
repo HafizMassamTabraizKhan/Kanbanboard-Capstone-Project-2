@@ -54,7 +54,9 @@ const getAllmovies = async () => {
   });
 
   const commentButtons = document.querySelectorAll('.btn');
-  commentButtons.forEach((btn) => btn.addEventListener('click', showModal));
+  commentButtons.forEach((btn) => btn.addEventListener('click', (e) => {
+    showModal(e.target.id);
+  }));
 };
 
 export default getAllmovies;
