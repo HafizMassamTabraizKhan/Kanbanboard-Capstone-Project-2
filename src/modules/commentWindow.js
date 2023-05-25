@@ -1,10 +1,38 @@
 const bodyTag = document.querySelector('body');
 
+const counter = (object) => object.length;
+
 const getComments = async (id) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;
+};
+
+const renderComments = async (id) => {
+  const comments = await getComments(id);
+  const commentsCount = document.querySelector('.comnts-count');
+  const commentsContainer = document.querySelector('.display-comnts');
+
+  if (comments) {
+    commentsContainer.innerHTML = '';
+    for (let i = comments.length - 1; i >= 0; i -= 1) {
+      commentsContainer.innerHTML += `
+        <li class="show-comment">
+        ${comments[i].creation_date} ${comments[i].username}: ${comments[i].comment}
+        </li>
+        `;
+    }
+
+    const showCommnets = document.querySelectorAll('.show-comment');
+    const count = counter(showCommnets);
+    if (count > 0) {
+      commentsCount.innerHTML = `(${count})`;
+    } else {
+      commentsCount.innerHTML = '(0)';
+      commentsContainer.innerHTML = 'no comments...';
+    }
+  }
 };
 
 const showModal = async (id) => {
@@ -51,27 +79,9 @@ const showModal = async (id) => {
     bodyTag.removeChild(projectOverlay);
   });
 
-  const comments = await getComments(id);
-  const commentsCount = document.querySelector('.comnts-count');
-  const commentsContainer = document.querySelector('.display-comnts');
+  renderComments(id);
 
-  if(comments !== undefined && comments.length > 0){
-    commentsContainer.innerHTML = '';
-    for (let i = comments.length - 1; i >= 0; i -= 1) {
-      commentsContainer.innerHTML += `
-        <li>
-        ${comments[i].creation_date} ${comments[i].username}: ${comments[i].comment}
-        </li>
-        `;
-    }
-    commentsCount.innerHTML = `(${comments.length})`;
-  }
-  else{
-    commentsCount.innerHTML = '(0)';
-    commentsContainer.innerHTML = 'no comments...';
-  }
-
-const addComment = async (id) => {
+  const addComment = async (id) => {
     const username = document.getElementById('username');
     const comment = document.getElementById('comment');
 
@@ -91,7 +101,8 @@ const addComment = async (id) => {
 
     username.value = '';
     comment.value = '';
-    showModal(id);
+
+    renderComments(id);
   };
 
   const commentForm = document.querySelector('.comment-form');
@@ -100,13 +111,5 @@ const addComment = async (id) => {
     addComment(e.target.id);
   });
 };
-
-const getComments = async (id) => {
-    const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data; 
-  };
-
 
 export default showModal;
