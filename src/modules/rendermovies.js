@@ -21,7 +21,6 @@ const getAllmovies = async () => {
     </div>
     <div class="reserve-comment">
         <button class="btn cmnt-btn" id=${movie.id}>Comments</button>
-        <button class="btn res-btn" id=${movie.id}>Reservations</button>
     </div>
 </li>`;
     showoutput += displaymovie;
