@@ -37,7 +37,8 @@ const renderComments = async (id) => {
 
 const showModal = async (id) => {
   const show = `https://api.tvmaze.com/shows/${id}`;
-  const data = await (await fetch(show)).json();
+  const response = await fetch(show);
+  const data = await response.json();
   const projectOverlay = document.createElement('section');
   projectOverlay.classList.add('popup-conatiner');
 
