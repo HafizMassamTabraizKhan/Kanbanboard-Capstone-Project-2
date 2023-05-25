@@ -1,4 +1,4 @@
-import { commentCounter } from "./commentCounter.js";
+import commentCounter from './commentCounter.js';
 
 const bodyTag = document.querySelector('body');
 

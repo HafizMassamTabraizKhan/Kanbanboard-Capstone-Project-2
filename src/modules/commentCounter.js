@@ -1,1 +1,3 @@
-export const commentCounter = (object) => object.length;
+const commentCounter = (object) => object.length;
+
+export default commentCounter;
