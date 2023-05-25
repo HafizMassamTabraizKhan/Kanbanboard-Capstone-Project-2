@@ -52,6 +52,9 @@ const getAllmovies = async () => {
     });
     updateLikesCount();
   });
+
+  const commentButtons = document.querySelectorAll('.btn');
+  commentButtons.forEach((btn) => btn.addEventListener('click', showModal));
 };
 
 export default getAllmovies;
