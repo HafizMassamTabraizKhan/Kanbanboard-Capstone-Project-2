@@ -102,8 +102,10 @@ const addComment = async (id) => {
 const getComments = async (id) => {
     const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
     const response = await fetch(url);
-    const data = await response.json();
-    return data; 
+    if(response.ok){
+        const data = await response.json();
+        return data; 
+    }
   };
 
 
