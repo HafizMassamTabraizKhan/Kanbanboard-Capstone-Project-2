@@ -105,6 +105,8 @@ const getComments = async (id) => {
     if(response.ok){
         const data = await response.json();
         return data; 
+    }else{
+        throw new Error(`Error! status: ${response.status}`)
     }
   };
 
