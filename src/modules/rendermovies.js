@@ -1,6 +1,8 @@
+import { getLikesCount, postLikes } from './involvement.js';
 import renderHeader from './header.js';
 
 export const movies = 'https://api.tvmaze.com/shows';
+
 const getAllmovies = async () => {
   const result = await fetch(movies);
   let showoutput = '';
@@ -13,7 +15,7 @@ const getAllmovies = async () => {
         <h3>${movie.name}</h3>
         <div class="likes">
             <i class='far fa-heart' id=${movie.id}></i>
-            <span class="likes">5 likes</span>
+            <span class="likes" id='likes-${movie.id}'></span>
         </div>
     </div>
     <div class="reserve-comment">
@@ -26,6 +28,29 @@ const getAllmovies = async () => {
   const movieSection = document.getElementById('movies-list');
   movieSection.innerHTML = showoutput;
   renderHeader();
+
+  const updateLikesCount = async () => {
+    const likesData = await getLikesCount();
+    likesData.forEach((item) => {
+      const likesCount = [`${item.likes}`];
+      const likesCountElement = document.getElementById(`likes-${item.item_id}`);
+      if (likesCountElement) {
+        likesCountElement.innerHTML = likesCount;
+      }
+    });
+  };
+
+  const likeBtn = document.querySelectorAll('.likes');
+  likeBtn.forEach((button) => {
+    button.addEventListener('click', async (item) => {
+      if (item.target.classList.contains('fa-heart')) {
+        const { id } = item.target;
+        postLikes(id);
+        updateLikesCount();
+      }
+    });
+    updateLikesCount();
+  });
 };
 
 export default getAllmovies;
