@@ -1,1 +1,0 @@
-// const counter = (object) => object.length;

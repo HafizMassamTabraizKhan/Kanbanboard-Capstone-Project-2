@@ -1,6 +1,6 @@
-const bodyTag = document.querySelector('body');
+import { commentCounter } from "./commentCounter.js";
 
-const counter = (object) => object.length;
+const bodyTag = document.querySelector('body');
 
 const getComments = async (id) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
@@ -25,7 +25,7 @@ const renderComments = async (id) => {
     }
 
     const showCommnets = document.querySelectorAll('.show-comment');
-    const count = counter(showCommnets);
+    const count = commentCounter(showCommnets);
     if (count > 0) {
       commentsCount.innerHTML = `(${count})`;
     } else {
