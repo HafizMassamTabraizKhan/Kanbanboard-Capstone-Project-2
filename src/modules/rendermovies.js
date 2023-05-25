@@ -1,5 +1,6 @@
 import { getLikesCount, postLikes } from './involvement.js';
 import renderHeader from './header.js';
+import showModal from './commentWindow.js';
 
 export const movies = 'https://api.tvmaze.com/shows';
 
@@ -9,7 +10,7 @@ const getAllmovies = async () => {
   const data = await result.json();
   data.forEach((movie) => {
     const displaymovie = `<li class="movie" id=${movie.id}>
-    <img src=${movie.image.medium}
+    <img src=${movie.image.original}
         alt="">
     <div class="detail">
         <h3>${movie.name}</h3>
@@ -51,6 +52,9 @@ const getAllmovies = async () => {
     });
     updateLikesCount();
   });
+
+  const commentButtons = document.querySelectorAll('.btn');
+  commentButtons.forEach((btn) => btn.addEventListener('click', showModal));
 };
 
 export default getAllmovies;
