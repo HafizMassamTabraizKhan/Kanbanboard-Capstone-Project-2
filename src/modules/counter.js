@@ -1,4 +1,1 @@
-
-const counter = (object) => {
-    return object.length;
-}
+// const counter = (object) => object.length;

@@ -1,12 +1,19 @@
 const bodyTag = document.querySelector('body');
 
+const getComments = async (id) => {
+  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+};
+
 const showModal = async (id) => {
   const show = `https://api.tvmaze.com/shows/${id}`;
   const data = await (await fetch(show)).json();
   const projectOverlay = document.createElement('section');
   projectOverlay.classList.add('popup-conatiner');
 
-  let modalContent = `
+  const modalContent = `
   <div class="popup-card">
   <span class="work-close">X</span>
   <div class="show">
@@ -48,40 +55,39 @@ const showModal = async (id) => {
   const commentsCount = document.querySelector('.comnts-count');
   const commentsContainer = document.querySelector('.display-comnts');
 
-  if(comments !== undefined && comments.length > 0){
+  if (comments) {
     commentsContainer.innerHTML = '';
     for (let i = comments.length - 1; i >= 0; i -= 1) {
-        commentsContainer.innerHTML += `
+      commentsContainer.innerHTML += `
         <li>
         ${comments[i].creation_date} ${comments[i].username}: ${comments[i].comment}
         </li>
         `;
     }
     commentsCount.innerHTML = `(${comments.length})`;
-  }
-  else{
+  } else {
     commentsCount.innerHTML = '(0)';
     commentsContainer.innerHTML = 'no comments...';
   }
 
-const addComment = async (id) => {
+  const addComment = async (id) => {
     const username = document.getElementById('username');
     const comment = document.getElementById('comment');
 
-    const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments`;
+    const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments';
     const data = {
       item_id: `item${id}`,
       username: username.value,
       comment: comment.value,
     };
-    const response = await fetch(url, {
+    await fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    
+
     username.value = '';
     comment.value = '';
     showModal(id);
@@ -93,13 +99,5 @@ const addComment = async (id) => {
     addComment(e.target.id);
   });
 };
-
-const getComments = async (id) => {
-    const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data; 
-  };
-
 
 export default showModal;
