@@ -29,7 +29,9 @@ const getAllmovies = async () => {
   renderHeader();
 
   const showBtns = document.querySelectorAll('.btn');
-  showBtns.forEach((btn) => btn.addEventListener('click', showModal));
+  showBtns.forEach((btn) => btn.addEventListener('click', (e) => {
+    showModal(e.target.id);
+  }));
 };
 
 export default getAllmovies;
