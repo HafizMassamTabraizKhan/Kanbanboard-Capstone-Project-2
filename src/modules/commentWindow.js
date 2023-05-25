@@ -55,7 +55,7 @@ const showModal = async (id) => {
   const commentsCount = document.querySelector('.comnts-count');
   const commentsContainer = document.querySelector('.display-comnts');
 
-  if (comments) {
+  if(comments !== undefined && comments.length > 0){
     commentsContainer.innerHTML = '';
     for (let i = comments.length - 1; i >= 0; i -= 1) {
       commentsContainer.innerHTML += `
@@ -65,12 +65,13 @@ const showModal = async (id) => {
         `;
     }
     commentsCount.innerHTML = `(${comments.length})`;
-  } else {
+  }
+  else{
     commentsCount.innerHTML = '(0)';
     commentsContainer.innerHTML = 'no comments...';
   }
 
-  const addComment = async (id) => {
+const addComment = async (id) => {
     const username = document.getElementById('username');
     const comment = document.getElementById('comment');
 
@@ -99,5 +100,13 @@ const showModal = async (id) => {
     addComment(e.target.id);
   });
 };
+
+const getComments = async (id) => {
+    const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UKP27MmenkdUVvm9H93H/comments?item_id=item${id}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data; 
+  };
+
 
 export default showModal;
