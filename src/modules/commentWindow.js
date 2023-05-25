@@ -48,7 +48,7 @@ const showModal = async (id) => {
   const commentsCount = document.querySelector('.comnts-count');
   const commentsContainer = document.querySelector('.display-comnts');
 
-  if(comments !== undefined && comments.length > 0){
+  if(comments){
     commentsContainer.innerHTML = '';
     for (let i = comments.length - 1; i >= 0; i -= 1) {
         commentsContainer.innerHTML += `
@@ -57,12 +57,17 @@ const showModal = async (id) => {
         </li>
         `;
     }
-    commentsCount.innerHTML = `(${comments.length})`;
+
+    if(comments.length>0){
+        commentsCount.innerHTML = `(${comments.length})`;
+       
+    }else{
+        commentsCount.innerHTML = '(0)';
+        commentsContainer.innerHTML = 'no comments...';
+    }
+   
   }
-  else{
-    commentsCount.innerHTML = '(0)';
-    commentsContainer.innerHTML = 'no comments...';
-  }
+  
 
 const addComment = async (id) => {
     const username = document.getElementById('username');
