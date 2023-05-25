@@ -15,7 +15,7 @@ const getAllmovies = async () => {
         <h3>${movie.name}</h3>
         <div class="likes">
             <i class='far fa-heart' id=${movie.id}></i>
-            <span class="likes" id='likes-${movie.id}'>0</span>
+            <span class="likes" id='likes-${movie.id}'></span>
         </div>
     </div>
     <div class="reserve-comment">
@@ -49,6 +49,7 @@ const getAllmovies = async () => {
         updateLikesCount();
       }
     });
+    updateLikesCount();
   });
 };
 
