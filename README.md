@@ -97,10 +97,10 @@ After you're finished please remove all the comments and instructions!
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="#"></a>
+## 🚀 Live Demo <a name="https://hafizmassamtabraizkhan.github.io/Kanbanboard/dist/"></a>
 
 
-- [[Live Demo Link](#)]
+- [[Live Demo Link](https://hafizmassamtabraizkhan.github.io/Kanbanboard/dist/)]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
