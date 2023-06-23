@@ -101,7 +101,7 @@ After you're finished please remove all the comments and instructions!
 ## 🚀 Live Demo <a name="https://hafizmassamtabraizkhan.github.io/Kanbanboard/dist/"></a>
 
 
-- [[Live Demo Link](https://hafizmassamtabraizkhan.github.io/Kanbanboard/dist/)]
+- [[Live Demo Link](https://hafizmassamtabraizkhan.github.io/Kanbanboard-Capstone-Project-2/dist/)]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
